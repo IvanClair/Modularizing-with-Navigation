@@ -1,0 +1,74 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+android {
+    compileSdkVersion 29
+
+
+    defaultConfig {
+        applicationId "personal.ivan.navigationpractice"
+        minSdkVersion 22
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+dependencies {
+
+    /* ------------------------------ Module */
+
+    implementation project(':ui-component')
+    implementation project(':di-view-model')
+    implementation project(':feature-a')
+    implementation project(':feature-b')
+
+    /* ------------------------------ Kotlin */
+
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation basic.kotlin
+
+    /* ------------------------------ Android */
+
+    implementation ui.constraintlayout
+    implementation navigation.fragment
+    implementation navigation.ui
+
+    /* ------------------------------ Dagger */
+
+    implementation dagger.core
+    kapt dagger.compiler
+    implementation dagger.androidSupport
+    kapt dagger.androidProcessor
+
+    /* ------------------------------ Test */
+
+    implementation test.junit
+    implementation test.androidTest
+    implementation test.espresso
+}

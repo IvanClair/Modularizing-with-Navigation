@@ -1,0 +1,6 @@
+rootProject.name='NavigationPractice'
+include ':app'
+include ':ui-component'
+include ':di-view-model'
+include ':feature-a'
+include ':feature-b'

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_module_b_graph"
+    app:startDestination="@id/moduleB1Fragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/moduleB1Fragment"
+        android:name="personal.ivan.moduleb.ModuleB1Fragment"
+        android:label="ModuleB1Fragment"
+        tools:layout="@layout/fragment_module_b_1">
+        <action
+            android:id="@+id/to_module_b_2"
+            app:destination="@id/moduleB2Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/moduleB2Fragment"
+        android:name="personal.ivan.moduleb.ModuleB2Fragment"
+        android:label="ModuleB2Fragment"
+        tools:layout="@layout/fragment_module_b_2" />
+</navigation>

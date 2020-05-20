@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main_app"
+    app:startDestination="@id/group_main"
+    tools:ignore="UnusedNavigation">
+
+    <include app:graph="@navigation/nav_module_a" />
+    <include app:graph="@navigation/nav_module_b" />
+
+    <navigation
+        android:id="@+id/group_main"
+        app:startDestination="@id/mainFragment1">
+
+        <fragment
+            android:id="@+id/mainFragment1"
+            android:name="personal.ivan.navigationpractice.MainFragment1"
+            android:label="MainFragment1"
+            tools:layout="@layout/fragment_main_1">
+            <action
+                android:id="@+id/to_main_2"
+                app:destination="@id/mainFragment2" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/mainFragment2"
+            android:name="personal.ivan.navigationpractice.MainFragment2"
+            android:label="MainFragment2"
+            tools:layout="@layout/fragment_main_2">
+
+            <action
+                android:id="@+id/to_module_a"
+                app:destination="@id/nav_module_a_graph" />
+
+            <action
+                android:id="@+id/to_module_b"
+                app:destination="@id/nav_module_b_graph" />
+        </fragment>
+    </navigation>
+</navigation>
